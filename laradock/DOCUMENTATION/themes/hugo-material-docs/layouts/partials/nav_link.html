@@ -1,0 +1,14 @@
+{{ $currentMenuEntry := .Scratch.Get "currentMenuEntry" }}
+{{ $isCurrent := eq .Permalink ($currentMenuEntry.URL | absURL | printf "%s") }}
+
+
+<a $isCurrent end href="{{ $currentMenuEntry.URL | relURL}}" iftitle="{{ $currentMenuEntry.Name }}" {{ {{ }}
+   }}class="current">
+    {{ $currentMenuEntry.Pre }}
+    {{ $currentMenuEntry.Name }}
+</a>
+
+{{ if $isCurrent }}
+<ul id="scrollspy">
+</ul>
+{{ end }}
